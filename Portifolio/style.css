@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pinyon+Script&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
+
+
+
+
+/* Para quem estiver lendo o codigo do site, gostaria de informar que o site NÃO ESTA visivelmente agradavel para dispositivos móveis por inexperiencia minha; futuramente posso melhorarar nisso.*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*pagina inicial do site, com animação de livros pendurados e botão de continuar*/
+
+ 
+
+
+/*A parte a cima foi feita com I.a, então resolvi tirar do codigo*/
+
+/*inicio da pagina real css.*/
+
+
+/* barra de rolagem estilizada, com cores combinando com o site*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background: #030303;
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(228, 216, 177); 
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #72fa49;
+}
+
+/*fundo do site, com imagem de pergaminho e cor marrom combinando com o site*/
+
+
+body {
+  background-image: url('fotos/documento-1.svg');
+  background-size: 100% ;
+  background-repeat: no-repeat;
+  background-color: rgb(105, 43, 31);
+}
+
+header {
+    color: azure;
+}
+
+
+
+
+/* coisas que provavelmente esquecerei por isso anotarei tudo*/
+
+
+
+
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    z-index: 1000;
+     
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* agora só os <a> entram nessa conta, então ficam centralizados de verdade */
+    align-items: center;
+
+    width: 100%;
+    height: clamp(70px, 3vw, 150px);
+    background-color: rgb(105, 43, 31);
+
+    gap: clamp(50px, 5vw, 200px);
+}
+
+.logo-nav {
+    position: absolute;           /* sai do fluxo do flex, por isso não conta mais pro justify-content */
+    left: clamp(20px, 4vw, 60px); /* distância da borda esquerda — pode zerar se quiser ela grudada mesmo */
+    top: 50%;
+    transform: translateY(-50%); /* compensa o align-items não enxergar um elemento absolute */
+
+    height: 4rem;
+    width: auto;
+}
+
+nav a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: clamp(1.4rem, 1vw, 6rem);
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+
+
+
+
+/* Caixa inteira */
+
+
+.container {
+    position: relative; 
+
+    /* Cresce com a tela, mas possui limite */
+    width: clamp(20rem, 39.6vw, 120rem);
+    height: clamp(10rem, 19vw, 80rem);
+    /*margin-top: 30%; */
+    margin-top: 37%;
+    margin-left: 0%;
+}
+
+
+
+/* Quadrado/retângulo branco */
+
+
+
+
+.retangulo {
+    position: absolute;
+    inset: 0; /*inset: 0;: É um atalho moderno e muito prático. É o mesmo que escrever top: 0; right: 0; bottom: 0; left: 0;. Isso faz o retângulo esticar e preencher 100% do espaço do .container. */
+    
+    background: white;
+    border-radius: 29px;
+    border: 3px solid rgb(0, 0, 0);
+    
+    
+    /* fica atrás do texto */
+    z-index: -1;
+}
+
+
+
+
+
+/* A foto preenche o retângulo marrom sem distorcer e sem vazar */
+.retangulo-marrom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes entrarEsquerda {
+    from {
+        transform: translateX(-105%); /* começa fora da tela, à esquerda */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);     /* desliza até a posição final */
+        opacity: 1;
+    }
+}
+
+/* Texto da animação */
+.animado {
+    position: relative;
+
+    margin: 0;
+    
+    /* também acompanha o tamanho da tela */
+    padding: clamp(1.5rem, 4vw, 4rem);
+
+    /* O tamanho da fonte acompanha a tela */
+    font-size: clamp(2rem, 3.3vw, 15rem);
+
+    /* impede o h1 de aumentar a caixa */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+        /*loyout das fotos*/
+
+
+/* O principal */
+.hero-section {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 5%; 
+  height: calc(30vh - 40px); 
+  overflow: hidden; 
+  
+}
+
+.hero-layout {
+    display: flex;
+    gap: 2vw;
+    padding-left: 5%;
+}
+
+
+.painel-imagem {
+    position: absolute;
+
+    left: 1%;
+    top: 10px;
+    /*margin-top: 8%;*/
+    margin-top: 10%;
+    margin-left: 4%;
+
+    width: 30vw;
+    height: 20vw;
+
+    background-color: rgb(0, 0, 22);
+    border: 3px solid black;
+    border-radius: 26px;
+
+    overflow: hidden;
+    z-index: 0;
+
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.painel-imagem img {
+  width: 50%;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+
+/* estilo da caixa branca */
+.text-box {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 2. Efeito Fade */
+.gallery-wrapper {
+    display: flex;
+    gap: 1.5vw;
+    margin-left: 2vw;
+    height: 120vh;
+    overflow: hidden;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+}
+/* 3. Animacao das colunas */
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3vw;
+
+    /* antes: width: 200px; */
+    width: 14vw;
+
+    animation: subirInfinitamente 15s linear infinite;
+}
+
+/* Baixa a coluna do meio */
+.coluna-meio {
+    margin-top: 5vw;
+}
+
+/* Padroniza as imagens para não quebrarem o layout */
+.coluna img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 4. KEYFRAMES (isso aqui foi feito com ajuda da I.a) */
+@keyframes subirInfinitamente {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    /* Como duplicamos as imagens no HTML, ao subir 50% do total da coluna, 
+       a metade clonada toma o lugar da original imperceptivelmente! */
+    transform: translateY(-50%);
+
+
+
+  }
+}
+
+
+/*Livros, parte de vendas */
+
+.secao-livros {
+    padding: 40px 5%; 
+    background-color: #ebebeb; 
+    font-family: Arial, sans-serif;
+
+.cabecalho-secao {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.cabecalho-secao h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #333;
+    margin: 0;
+}
+
+.cabecalho-secao a {
+    color: #3483fa; 
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.carrossel-container {
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
+
+/*  */
+.carrossel-track {
+    display: flex;
+    gap: 15px; 
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
+    padding: 10px 5px; 
+}
+
+/* esconde a barrinha de rolagem feia nativa do navegador */
+.carrossel-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* cartao */
+.card-livro {
+    background: white;
+    
+    
+    width: clamp(160px, 15vw, 280px);
+    flex-shrink: 0; 
+    
+    border-radius: 5px;
+    padding: clamp(10px, 1vw, 20px); 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, transform 0.2s; 
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-livro:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+
+}
+
+.card-livro img {
+    width: 100%;
+   
+    height: clamp(150px, 12vw, 400px); 
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* textos dentro do card */
+.info-livro {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tag-destaque {
+    background-color: #F66523; /* Laranja */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 3px;
+    align-self: flex-start; 
+}
+
+.titulo-livro {
+    /* afonte se adapta suavemente */
+    font-size: clamp(0.85rem, 1vw, 1.1rem);
+    color: #333;
+    font-weight: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: clamp(34px, 3vw, 44px);
+}
+
+.preco-antigo {
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: line-through; /* risca o preço */
+}
+
+.preco-atual-container {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.preco-atual {
+    /* O preço principal ganha bastante destaque em telas maiores */
+    font-size: clamp(1.2rem, 1.8vw, 2rem);
+    color: #333;
+}
+
+.centavos {
+    font-size: 0.9rem;
+}
+
+.desconto {
+    color: #00a650; 
+    font-size: 0.85rem;
+}
+
+.parcelamento, .frete-gratis {
+    font-size: 0.85rem;
+    color: #00a650;
+}
+.frete-gratis {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.raio {
+    font-style: italic;
+}
+
+/* seytas */
+.seta-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    color: #3483fa;
+    cursor: pointer;
+    z-index: 10;
+}
+.seta-esq { left: -25px; } 
+.seta-dir { right: -25px; }
+
+
+
+.ofertas {
+    position: absolute;
+    left: 1%;
+    top: 10px;
+    width: clamp(20rem, 39.6vw, 120rem);
+    height: 110px;
+    
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;   
+    
+    background-color: black;
+    border: 3px solid black;
+    margin-top: 56%;
+    margin-left: 4.1%;
+    
+}
+
+.ofertas h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0%;
+}
+
+.ofertas a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 1rem; 
+    
+}
+
+}

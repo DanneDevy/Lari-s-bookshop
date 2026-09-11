@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Pinyon+Script&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
+
+
+
+
+
+
+
+/* Para quem estiver lendo o codigo do site, gostaria de informar que o site NÃO ESTA visivelmente agradavel para dispositivos móveis por inexperiencia minha; futuramente posso melhorarar nisso.*/
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-track{
+    background: #030303;
+}
+::-webkit-scrollbar-thumb{
+    background: rgb(228, 216, 177); 
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #72fa49;
+}
+
+body {
+  background-image: url('fotos/documento-1.svg');
+  background-size: cover; /* Faz a imagem esticar para cobrir todo o conteúdo */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Opcional: mantém o fundo fixo ao rolar */
+
+
+header {
+    color: azure;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color:#00000000;
+    
+}
+
+
+.painel-imagem {
+    position: absolute;
+    
+    left: 35%;
+    width: 30vw;
+    height: clamp(20vw, 30vh, 40vw);
+    background: linear-gradient(to bottom left, #111111, #8043ac);
+    border: 3px solid black;
+    border-radius: 26px;
+    margin-top: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.painel-imagem img {
+  width: 50%;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    z-index: 1000;
+     
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* agora só os <a> entram nessa conta, então ficam centralizados de verdade */
+    align-items: center;
+
+    width: 100%;
+    height: clamp(70px, 3vw, 150px);
+    background-color: rgb(105, 43, 31);
+
+    gap: clamp(50px, 5vw, 210px);
+}
+
+.logo-nav {
+    position: absolute;           /* sai do fluxo do flex, por isso não conta mais pro justify-content */
+    left: clamp(20px, 4vw, 60px); /* distância da borda esquerda — pode zerar se quiser ela grudada mesmo */
+    top: 50%;
+    transform: translateY(-50%); /* compensa o align-items não enxergar um elemento absolute */
+
+    height: 4rem;
+    width: auto;
+}
+
+nav a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: clamp(1.4rem, 1vw, 6rem);
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    margin: 0 auto;
+    padding: 1rem;
+    color: #000000;
+    
+}
+
+
+h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #000000;
+    
+}
+.secao-livros-paia {
+    
+    width: min(90%, 1200px);
+    min-height: 45rem;
+
+    margin: 3rem auto;
+    padding: 40px 5%;
+
+    background-color: #1e1e1e;
+    border-radius: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    box-sizing: border-box;
+}
+
+
+.texto-sobre{
+    
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 40rem;
+    font-size: 1.3rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3rem;
+
+
+    margin: 0 auto;
+    padding: 3rem;
+    color: #000000;
+}
+
+.texto{
+    
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-weight: 40rem;
+    font-size: 1.3rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3rem;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    color: #000000;
+}
+
+
+.secao-livros {
+
+    height: 30rem
+    width: 10rem;
+    padding: 40px 5%; /* O 5% mantém alinhado com sua hero-section */
+    background-color: #1e1e1e; /* Fundo levemente cinza do site de vendas */
+    border-radius: 3rem;
+    gap: 10rem;
+
+}
+  footer {
+  background-color: rgb(43, 17, 12);
+  color: #ffffff;
+  padding: 20px 0;
+  width: 100%;
+  height: 18rem;
+
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #b3b3b3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+
+}
+
+.footera-imagem {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
